@@ -5,28 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 05:36:15 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 06:40:36 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 01:42:31 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 01:55:15 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
-int	Zombie::numberOfZombiez = 0;
 
-Zombie::Zombie(){
-	zombieIdx = numberOfZombiez++;
+Zombie::Zombie( std::string name) :_name(name){
+
 }
 
-Zombie::~Zombie(){
-	std::cout << zombieName << " "  << zombieIdx << " Died\n";
+Zombie::Zombie( void ){
+}
+
+void	Zombie::setName( std::string name) {
+	_name = name;
 }
 
 void	Zombie::announce( void ){
-	std::cout << zombieName << " " << " BraiiiiiiinnnzzzZ...\n";
+	std::cout << _name << " :BraiiiiiiinnnzzzZ...\n";
 }
 
-void	Zombie::setName( std::string name ){
-	zombieName = name;
+Zombie::~Zombie(){
+	std::cout << _name << " Killed\n";
 }

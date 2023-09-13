@@ -1,23 +1,22 @@
-NAME = Human
-CC = c++ -Wall -Wextra -Werror -std=c++98 
-RM = rm -f
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-OBJ = $(SRC:.cpp=.o)
+NAME = Weapon
+CC   = g++ -Wall -Wextra -Werror -std=c++98
+SRC  =  HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+INC  =  HumanA.hpp HumanB.hpp Weapon.hpp
+RM   = rm -f
+OBJ  = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $^ -o $@
 
-%.o : %.cpp 
+%.o: %.cpp $(INC)
 	$(CC) -c $< -o $@
 
-clean: 
+clean:
 	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

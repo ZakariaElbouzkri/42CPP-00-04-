@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 05:59:43 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 06:20:43 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 01:43:48 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 01:50:24 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
-Zombie*	zombieHorde( int N, std::string name ){
-	Zombie* zombies = new Zombie[N];
+Zombie* zombieHorde( int N, std::string name ){
+	Zombie*	x = new Zombie[N];
 	for (int i=0; i < N; i++){
-		zombies[i].setName(name);
+		x[i].setName(name);
 	}
-	return (zombies);
+	return (x);
 }

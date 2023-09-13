@@ -1,7 +1,7 @@
 NAME = PhoneBook
-CC = c++ -Wall -Wextra -Werror -std=c++98
+CC = c++ -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM = rm -f
-SRC = main.cpp PhoneBook.cpp Contact.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -1,23 +1,25 @@
-NAME = Zombie
-CC = c++ -Wall -Wextra -Werror -std=c++98
-RM = rm -f
-SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+NAME = Fixed
+
+CC  = g++ -Wall -Wextra -Werror -std=c++98
+
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+
+INC = Fixed.hpp
+
+RM  = rm -f
 OBJ = $(SRC:.cpp=.o)
-
 all: $(NAME)
-
 $(NAME) : $(OBJ)
 	$(CC) $^ -o $@
 
-%.o : %.cpp 
+%.o: %.cpp $(INC)
 	$(CC) -c $< -o $@
 
-clean: 
+clean :
 	$(RM) $(OBJ)
 
-fclean: clean
+fclean : clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re

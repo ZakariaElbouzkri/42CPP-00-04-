@@ -1,23 +1,22 @@
-NAME = sedForLosers
-CC = c++ -Wall -Wextra -Werror -std=c++98 
-RM = rm -f
-SRC = main.cpp 
-OBJ = $(SRC:.cpp=.o)
+NAME = Sed
+CC   = g++ -Wall -Wextra -Werror -std=c++98
+SRC  =  main.cpp
+INC  = 
+RM   = rm -f
+OBJ  = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $^ -o $@
 
-%.o : %.cpp 
+%.o: %.cpp $(INC)
 	$(CC) -c $< -o $@
 
-clean: 
+clean:
 	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

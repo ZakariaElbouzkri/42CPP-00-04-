@@ -5,22 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 20:29:24 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/03 03:24:45 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 06:08:00 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 06:33:57 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef _Harl_HPP_
+#define _Harl_HPP_
 
 #include <iostream>
 
 class	Harl{
 	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
 	public:
-		Harl();
-		~Harl();
+		Harl( void );
+		~Harl( void );
 		void	complain( std::string level );
 };
 
+#endif

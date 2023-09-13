@@ -5,26 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 07:52:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 08:21:10 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 02:19:12 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 02:50:23 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB( std::string nameB ){
-	name = nameB;
+HumanB::HumanB( std::string name ) : _name(name){
+
 }
 
-HumanB::~HumanB(){
+HumanB::~HumanB( void ){
+
 }
 
 void	HumanB::attack( void ){
-	std::cout << name << " attacks with their " << (*weapon).getType() << "\n";
+	std::string	type = _weapon->getType();
+	std::cout << _name << " attacks with their " << type << "\n";
 }
 
-void	HumanB::setWeapon( Weapon& wp ){
-	weapon = &wp;
+void	HumanB::setWeapon( Weapon& weapon ){
+	_weapon = &weapon;
 }

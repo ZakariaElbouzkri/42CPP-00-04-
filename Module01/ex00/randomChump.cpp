@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 05:45:09 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 05:45:44 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/12 22:45:28 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/12 22:45:40 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+
 void randomChump( std::string name ){
-	Zombie z(name);
-	z.announce();
+	Zombie	x(name);
+	x.announce();
 }

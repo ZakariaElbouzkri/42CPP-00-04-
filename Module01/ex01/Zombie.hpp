@@ -5,28 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 05:33:36 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 06:29:30 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 01:39:59 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 01:53:00 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef	_Zombie_HPP_
+#define _Zombie_HPP_
 
 #include <iostream>
 
 class	Zombie{
 	private:
-		static int	numberOfZombiez;
-		int			zombieIdx;
-		std::string zombieName;
+		std::string	_name;
 	public:
-		Zombie();
-		~Zombie();
+		Zombie( std::string name );
+		Zombie( void );
+		~Zombie( void );
+		void	setName( std::string name );
 		void	announce( void );
-		void	setName( std::string );
 };
 
-Zombie* zombieHorde( int N, std::string name );
-
+Zombie*	zombieHorde( int N, std::string name );
 #endif

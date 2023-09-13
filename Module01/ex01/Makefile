@@ -1,23 +1,22 @@
 NAME = Zombie
-CC = c++ -Wall -Wextra -Werror -std=c++98 
-RM = rm -f
-SRC = Zombie.cpp main.cpp zombieHorde.cpp 
-OBJ = $(SRC:.cpp=.o)
+CC   = g++ -Wall -Wextra -Werror -std=c++98
+SRC  =  Zombie.cpp main.cpp zombieHorde.cpp
+INC  =  Zombie.hpp
+RM   = rm -f
+OBJ  = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $^ -o $@
 
-%.o : %.cpp 
+%.o: %.cpp $(INC)
 	$(CC) -c $< -o $@
 
-clean: 
+clean:
 	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

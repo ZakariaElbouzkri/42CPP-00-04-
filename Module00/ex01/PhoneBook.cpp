@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 05:48:08 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 02:41:13 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/13 06:00:09 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	PhoneBook::searchContact(void){
 	if (!getline(std::cin, strIdx)){
 		std::cout << "Exit\n";
 	}
-	else if (isValid(strIdx, idx) && (idx < this->size || this->size != 0)){
+	else if (isValid(strIdx, idx) && (idx < this->size && idx >= 0)){
 		this->book[idx].displayContactInfo();
 	}
 	else{

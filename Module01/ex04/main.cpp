@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 08:26:48 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/02 05:11:12 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 06:52:44 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 07:05:38 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include <iostream>
 #include <fstream>
@@ -23,7 +24,7 @@ int	sedForLosers(std::string filename, std::string toFind, std::string toReplace
 		return (1);
 	}
 	while (getline(inFile, line)){
-		while ((pos = line.find(toFind)) != std::string::npos){
+		while (toFind != toReplace && (pos = line.find(toFind)) != std::string::npos){
 			line.erase(pos, toFind.size());
 			line.insert(pos, toReplace);
 		}
@@ -39,10 +40,9 @@ int main(int ac, char **av){
 	if (ac != 4){
 		std::cout << "usage: " << av[0] << " ";
 		std::cout << "[filename]" << " ";
-		std::cout << "[string 1]" << " ";
-		std::cout << "[string 2]" << "\n";
+		std::cout << "[toFind]" << " ";
+		std::cout << "[toReplace]" << "\n";
 		return (1);
 	}
 	return (sedForLosers(av[1], av[2], av[3]));
 }
-

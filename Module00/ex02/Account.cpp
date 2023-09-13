@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 02:54:54 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 05:27:49 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/03 07:01:32 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Account::Account(int initial_deposit ){
 
 Account::Account( void ){
 	_amount = 0;
-	_accountIndex = _nbAccounts;
+	_accountIndex = _nbAccounts++;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	_nbAccounts += 1;
@@ -58,7 +58,7 @@ Account::~Account( void ){
 
 void	Account::_displayTimestamp( void ){
 	time_t timeNow = std::time(NULL);
-	std::cout << std::setfill('0') << "[" << std::localtime(&timeNow)->tm_year;
+	std::cout << std::setfill('0') << "[" << 1900 + std::localtime(&timeNow)->tm_year;
 	std::cout << std::setw(2) << std::localtime(&timeNow)->tm_mon;
 	std::cout << std::setw(2) << std::localtime(&timeNow)->tm_mday;
 	std::cout << "_";
@@ -108,7 +108,7 @@ void	Account::makeDeposit(int deposit ){
 }
 
 bool	Account::makeWithdrawal(int withdrawal ){
-	_displayTimestamp();
+	this->_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
 	if (withdrawal > _amount){
@@ -126,7 +126,7 @@ bool	Account::makeWithdrawal(int withdrawal ){
 }
 
 int	Account::checkAmount( void ) const {
-	return (0);
+	return (_amount);
 }
 
 void	Account::displayStatus( void ) const {

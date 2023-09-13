@@ -5,26 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 07:45:21 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 08:21:16 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/13 02:16:08 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/13 02:49:30 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_B_HPP
-#define HUMAN_B_HPP
+#ifndef _HumanB_HPP_
+#define _HumanB_HPP_
 
 #include <iostream>
 #include "Weapon.hpp"
 
 class	HumanB{
 	private:
-		Weapon*	weapon;
-		std::string name;
+		Weapon		*_weapon;
+		std::string	_name;
 	public:
-		HumanB( std::string nameB );
+		HumanB( std::string name );
 		~HumanB( void );
-		void	setWeapon( Weapon& wp );
 		void	attack( void );
+		void	setWeapon( Weapon& weapon );
 };
 
 

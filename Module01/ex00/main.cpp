@@ -5,18 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 05:46:27 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/01 05:55:33 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/12 22:48:43 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/12 22:50:37 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main(){
-	Zombie	*z;
-
-	z = newZombie("Foo1");
-	z->announce();
-	randomChump("Foo2");
-	delete z;
+	Zombie*	z1 = newZombie("Foo1");
+	randomChump("foo2");
+	z1->announce();
+	delete z1;
 }
