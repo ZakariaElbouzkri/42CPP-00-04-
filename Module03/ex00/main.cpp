@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 07:12:04 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/13 07:12:24 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/14 23:19:29 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/14 23:19:30 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main(){
+
+int	main(){
+	std::cout << "hello world\n";
 	return (0);
 }

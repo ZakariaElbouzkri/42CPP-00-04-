@@ -5,73 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 08:10:29 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/08 08:38:23 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/14 02:46:30 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/14 03:18:46 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <cmath>
 #include "Fixed.hpp"
 
-Fixed::Fixed() : value(0){
+
+Fixed::Fixed( void ) : _fixedPoit(0){
 	std::cout << "Default constructor called\n";
 }
 
+Fixed::Fixed( const int num ) : _fixedPoit(num << frac) {
+	std::cout << "Int constructor called\n";
+}
 
-Fixed::~Fixed(){
+Fixed::Fixed( const float num ) : _fixedPoit(roundf(num * (1 << frac))) {
+	std::cout << "Float constructor called\n";
+}
+
+Fixed::~Fixed( void ){
 	std::cout << "Destructor called\n";
 }
 
-
-Fixed::Fixed(Fixed const &rhs){
+Fixed::Fixed( Fixed const& rhs ){
 	std::cout << "Copy constructor called\n";
 	*this = rhs;
 }
 
-
-Fixed	&Fixed::operator=(const Fixed &rhs){
+Fixed&	Fixed::operator=( const Fixed& rhs ){
 	std::cout << "Copy assignment operator called\n";
 	if (this != &rhs){
-		this->value = rhs.value;
+		this->_fixedPoit = rhs.getRawBits();
 	}
 	return (*this);
 }
 
-
 int	Fixed::getRawBits( void ) const{
-	std::cout << "getRawBits member function called\n";
-	return (this->value);
+	return (_fixedPoit);
 }
 
-
-void	Fixed::setRawBits( const int raw ){
-	std::cout << "getRawBits member function called\n";
-	this->value = raw;
+void Fixed::setRawBits( int const raw ){
+	_fixedPoit = raw;
 }
 
-
-/* ************************************************* */
-
-Fixed::Fixed(const int n) : value(n << frac){
-	std::cout << "Int constructor called\n";
+int	Fixed::toInt( void ) const{
+	return (_fixedPoit >> frac);
 }
 
-
-Fixed::Fixed(const float n) : value(std::roundf(n * (1 << frac))){
-	std::cout << "Float constructor called\n";
+float	Fixed::toFloat( void ) const{
+	return (float(_fixedPoit) / (1 << frac));
 }
 
-int	Fixed::toInt( void ) const {
-	return (this->value >> frac);
-}
-
-float	Fixed::toFloat( void ) const {
-	return (float(this->value) / (1 << frac));
-}
-
-std::ostream&	operator<<(std::ostream& stream, const Fixed& rhs){
+std::ostream&	operator<<( std::ostream& stream, const Fixed& rhs ){
 	stream << rhs.toFloat();
 	return (stream);
 }

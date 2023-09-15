@@ -5,161 +5,157 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 08:10:29 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/09 18:35:07 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/14 02:46:30 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/14 23:05:36 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <cmath>
 #include "Fixed.hpp"
 
-Fixed::Fixed() : value(0){
+
+Fixed::Fixed( void ) : _fixedPoit(0){
 	// std::cout << "Default constructor called\n";
 }
 
-
-Fixed::~Fixed(){
+Fixed::Fixed( const int num ) : _fixedPoit(num << frac) {
+	// std::cout << "Int constructor called\n";
 }
 
+Fixed::Fixed( const float num ) : _fixedPoit(roundf(num * (1 << frac))) {
+	// std::cout << "Float constructor called\n";
+}
 
-Fixed::Fixed(Fixed const &rhs){
+Fixed::~Fixed( void ){
+	// std::cout << "Destructor called\n";
+}
+
+Fixed::Fixed( Fixed const& rhs ){
+	// std::cout << "Copy constructor called\n";
 	*this = rhs;
 }
 
-
-Fixed	&Fixed::operator=(const Fixed &rhs){
+Fixed&	Fixed::operator=( const Fixed& rhs ){
+	// std::cout << "Copy assignment operator called\n";
 	if (this != &rhs){
-		this->value = rhs.value;
+		this->_fixedPoit = rhs.getRawBits();
 	}
 	return (*this);
 }
 
-
 int	Fixed::getRawBits( void ) const{
-	return (this->value);
+	return (_fixedPoit);
 }
 
-
-void	Fixed::setRawBits( const int raw ){
-	this->value = raw;
+void Fixed::setRawBits( int const raw ){
+	_fixedPoit = raw;
 }
 
-
-/* ************************************************* */
-
-Fixed::Fixed(const int n) : value(n << frac){
+int	Fixed::toInt( void ) const{
+	return (_fixedPoit >> frac);
 }
 
-
-Fixed::Fixed(const float n) : value(std::roundf(n * (1 << frac))){
+float	Fixed::toFloat( void ) const{
+	return (float(_fixedPoit) / (1 << frac));
 }
 
-int	Fixed::toInt( void ) const {
-	return (this->value >> frac);
-}
-
-float	Fixed::toFloat( void ) const {
-	return (float(this->value) / (1 << frac));
-}
-
-std::ostream&	operator<<(std::ostream& stream, const Fixed& rhs){
+std::ostream&	operator<<( std::ostream& stream, const Fixed& rhs ){
 	stream << rhs.toFloat();
 	return (stream);
 }
 
-/* ************************************************* */
-
-bool	Fixed::operator>(const Fixed& rhs){
-	return (this->value > rhs.value);
+bool	Fixed::operator<( const Fixed& rhs ) const{
+	return (_fixedPoit < rhs._fixedPoit);
 }
 
-bool	Fixed::operator<(const Fixed& rhs){
-	return (this->value < rhs.value);
+bool	Fixed::operator<=( const Fixed& rhs ) const{
+	return (_fixedPoit <= rhs._fixedPoit);
 }
 
-bool	Fixed::operator>=(const Fixed& rhs){
-	return (this->value >= rhs.value);
+bool	Fixed::operator>( const Fixed& rhs ) const{
+	return (_fixedPoit > rhs._fixedPoit);
 }
 
-bool	Fixed::operator<=(const Fixed& rhs){
-	return (this->value <= rhs.value);
+bool	Fixed::operator>=( const Fixed& rhs ) const{
+	return (_fixedPoit >= rhs._fixedPoit);
 }
 
-bool	Fixed::operator!=(const Fixed& rhs){
-	return (this->value != rhs.value);
+bool	Fixed::operator==( const Fixed& rhs ) const{
+	return (_fixedPoit == rhs._fixedPoit);
 }
 
-bool	Fixed::operator==(const Fixed& rhs){
-	return (this->value == rhs.value);
+bool	Fixed::operator!=( const Fixed& rhs ) const{
+	return (_fixedPoit != rhs._fixedPoit);
 }
 
-Fixed	Fixed::operator+(const Fixed& rhs) const {
-	return Fixed(this->toFloat() + rhs.toFloat());
+Fixed	Fixed::operator+( const Fixed& rhs ) const{
+	Fixed	ans(_fixedPoit + rhs._fixedPoit);
+	return ans;
 }
 
-Fixed	Fixed::operator-(const Fixed& rhs) const {
-	return Fixed(this->toFloat() - rhs.toFloat());
+Fixed	Fixed::operator-( const Fixed& rhs ) const{
+	Fixed	ans(_fixedPoit - rhs._fixedPoit);
+	return ans;
 }
 
-Fixed	Fixed::operator*(const Fixed& rhs) const {
-	return Fixed(this->toFloat() * rhs.toFloat());
+Fixed	Fixed::operator*( const Fixed& rhs ) const{
+	Fixed	ans(toFloat() * rhs.toFloat());
+	return ans;
 }
 
-Fixed	Fixed::operator/(const Fixed& rhs) const {
-	if (!rhs.value){
-		return (Fixed());
+Fixed	Fixed::operator/( const Fixed& rhs ) const{
+	if (rhs._fixedPoit != 0){
+		Fixed	ans(toFloat() / rhs.toFloat());
+		return (ans);
 	}
-	return Fixed(this->toFloat() / rhs.toFloat());
+	return (Fixed());
 }
 
-Fixed&   Fixed::operator++( void ) {
-    ++this->value;
-    return (*this);
+Fixed&	Fixed::operator++( void ){
+	++_fixedPoit;
+	return (*this);
 }
 
-Fixed   Fixed::operator++( int ) {
-    Fixed fx( *this );
-    fx.value = this->value++;
-    return (fx);
+Fixed	Fixed::operator++( int ) const{
+	Fixed	ans(*this);
+	ans._fixedPoit++;
+	return (ans);
 }
 
-Fixed& Fixed::operator--( void ) {
-    --this->value;
-    return (*this);
+Fixed&	Fixed::operator--( void ){
+	this->_fixedPoit--;
+	return (*this); 
 }
 
-Fixed Fixed::operator--( int ) {
-    Fixed fx( *this );
-    fx.value = this->value--;
-    return (fx);
+Fixed	Fixed::operator--( int ) const{
+	Fixed	ans(*this);
+	ans._fixedPoit--;
+	return (ans);
 }
 
-Fixed	Fixed::max(const Fixed& lhs, const Fixed& rhs){
-	if (lhs.toFloat() > rhs.toFloat()){
-		return (lhs);
+const Fixed&	Fixed::min(const Fixed& a, const Fixed& b){
+	if (a < b){
+		return (a);
 	}
-	return (rhs);
+	return (b);
 }
 
-Fixed	Fixed::max(Fixed& lhs, Fixed& rhs){
-	if (lhs > rhs){
-		return (lhs);
+Fixed&	Fixed::min(Fixed& a, Fixed& b){
+	if (a < b){
+		return (a);
 	}
-	return (rhs);
+	return (b);
 }
 
-Fixed	Fixed::min(const Fixed& lhs, const Fixed& rhs){
-	if (lhs.toFloat() < rhs.toFloat()){
-		return (lhs);
+const Fixed&	Fixed::max(const Fixed& a, const Fixed& b){
+	if (a > b){
+		return (a);
 	}
-	return (rhs);
+	return (b);
 }
 
-Fixed	Fixed::min(Fixed& lhs, Fixed& rhs){
-	if (lhs.toFloat() < rhs.toFloat()){
-		return (lhs);
+Fixed&	Fixed::max(Fixed& a, Fixed& b){
+	if (a > b){
+		return (a);
 	}
-	return (rhs);	
+	return (b);
 }

@@ -1,25 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 09:17:01 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/09 19:02:45 by zel-bouz         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <iostream>
 #include "Point.hpp"
 
 
-int main(){
-	Point a(-4, 4);
-	Point b(3.91,4.33);
-	Point c(-3.29,-1.67);
-	Point p(-0.75,1.59);
-	// std::cout << a << b << c << p << "\n";
-	std::cout << a.bsp(a, b, c, p) << "\n";
+int	main(){
+	// Point a = Point(2, 6);
+	// Point b = Point(8, 2);
+	// Point c = Point(10, 8);
+	// Point P_inABC = Point(8,6);
+	// Point P_outABC = Point(-4.79, -2.11);
+
+	// std::cout << a << b << c << P_inABC << P_outABC;
+
+	// std::cout << bsp(a, b, c, P_inABC) << "\n";
+	// std::cout << bsp(a, b, c, P_outABC) << "\n";
+
+	Fixed	a = 19;
+	Fixed	b = -10;
+	std::cout << (a * b) << '\n';
 	return (0);
 }

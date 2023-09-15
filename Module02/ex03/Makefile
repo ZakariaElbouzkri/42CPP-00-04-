@@ -1,25 +1,22 @@
-NAME = Point
+NAME = BSP
+CC   = g++ -Wall -Wextra -Werror -std=c++98
+SRC  = Fixed.cpp Point.cpp bsp.cpp main.cpp
+INC  = Fixed.hpp Point.hpp
+RM   = rm -f
+OBJ  = $(SRC:.cpp=.o)
 
-CC  = g++ -Wall -Wextra -Werror -std=c++98
-
-SRC = Point.cpp Fixed.cpp main.cpp
-
-INC = Point.hpp Fixed.hpp
-
-RM  = rm -f
-OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
-$(NAME) : $(OBJ)
+
+$(NAME): $(OBJ)
 	$(CC) $^ -o $@
 
 %.o: %.cpp $(INC)
 	$(CC) -c $< -o $@
 
-clean :
+clean:
 	$(RM) $(OBJ)
 
-fclean : clean
+fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
