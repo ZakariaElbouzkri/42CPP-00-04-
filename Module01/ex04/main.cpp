@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 06:52:44 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/13 07:05:38 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:05:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <iostream>
 #include <fstream>
+#include <string.h>
+
 
 int	sedForLosers(std::string filename, std::string toFind, std::string toReplace){
-	std::ifstream	inFile(filename);
+	std::ifstream	inFile(filename.c_str());
 	std::ofstream	outFile("outFile.txt");
 	std::string		line;
 	size_t			pos;

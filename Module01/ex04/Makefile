@@ -1,5 +1,5 @@
 NAME = Sed
-CC   = g++ -Wall -Wextra -Werror -std=c++98
+CC   = g++ -Wall -Wextra -Werror -Werror=implicit-fallthrough -std=c++98
 SRC  =  main.cpp
 INC  = 
 RM   = rm -f
