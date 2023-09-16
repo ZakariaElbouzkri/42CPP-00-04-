@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 06:52:44 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/15 23:52:45 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/16 00:07:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ bool	sedForLosers(std::string filename, std::string toFind, std::string toReplac
 		return (false);
 	}
 	std::string		out = filename + ".replace";
-	std::ifstream	infile(filename);
-	std::ofstream	outfile(out);
+	std::ifstream	infile(filename.c_str());
+	std::ofstream	outfile(out.c_str());
 	std::string		line;
 	size_t			pos;
 	if (!outfile.is_open() || !infile.is_open()){

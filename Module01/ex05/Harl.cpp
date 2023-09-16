@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 06:10:29 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/15 02:10:44 by codespace        ###   ########.fr       */
+/*   Updated: 2023/09/15 20:59:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	Harl::complain( std::string level ){
 	func ptr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	for (int i=0; i < 4; i++){
-		if (level == levels[i]) 
+		if (level == levels[i])
 			(this->*ptr[i])();
 	}
 }
