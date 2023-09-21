@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 05:33:40 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/02 04:03:31 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:08:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONTACT_H
 
 #include <iostream>
+#include <stdlib.h>
 
 class Contact{
 	private:

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 02:46:30 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/14 03:00:12 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/16 04:18:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ void Fixed::setRawBits( int const raw ){
 	std::cout << "setRawBits member function called\n";
 	_fixedPoit = raw;
 }
-
