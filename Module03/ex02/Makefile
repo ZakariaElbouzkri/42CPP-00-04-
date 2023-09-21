@@ -1,7 +1,7 @@
-NAME = ClapTrap
+NAME = FragTrap
 CC   = g++ -Wall -Wextra -Werror -std=c++98
-SRC  =  ClapTrap.cpp main.cpp
-INC  =  ClapTrap.hpp
+SRC  =  ClapTrap.cpp FragTrap.cpp ScavTrap.cpp main.cpp
+INC  =  ClapTrap.hpp FragTrap.hpp ScavTrap.hpp
 RM   = rm -f
 OBJ  = $(SRC:.cpp=.o)
 

@@ -6,11 +6,15 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 09:34:36 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/21 12:52:41 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:07:01 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap( void ){
+	
+}
 
 ClapTrap::ClapTrap( std::string name ) : _name(name), _hitPoints(10),
 	_damage(0), _energyPoints(10) {

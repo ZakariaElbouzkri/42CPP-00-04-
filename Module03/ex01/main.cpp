@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 12:50:46 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/21 12:53:00 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/09/21 12:54:27 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/09/21 13:08:57 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+
 
 int	main(){
-	ClapTrap	c1 = ClapTrap("Foo1");
-	ClapTrap	c2 = ClapTrap("Foo2");
-	
-	c1.attack("Foo2");
-	c2.attack("Foo1");
+	ScavTrap	s1 = ScavTrap("Foo1");
+
+	s1.attack("Foo2");
+	s1.guardGate();
 	return (0);
 }

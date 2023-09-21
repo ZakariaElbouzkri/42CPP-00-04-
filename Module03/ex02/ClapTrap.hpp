@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 09:34:58 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/21 12:51:57 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:12:06 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class	ClapTrap{
 
-	private:
+	protected:
 		std::string _name;
 		int			_hitPoints;
 		int			_damage;
