@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 02:46:30 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/28 14:00:54 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/09/28 14:48:39 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ Fixed	Fixed::operator+( const Fixed& rhs ) const{
 }
 
 Fixed	Fixed::operator-( const Fixed& rhs ) const{
-	Fixed	ans(toFloat() * rhs.toFloat());
+	Fixed	ans(toFloat() - rhs.toFloat());
 	return ans;
 }
 
@@ -115,9 +115,9 @@ Fixed&	Fixed::operator++( void ){
 	return (*this);
 }
 
-Fixed	Fixed::operator++( int ) const{
+Fixed	Fixed::operator++( int ){
 	Fixed	ans(*this);
-	ans._fixedPoit++;
+	_fixedPoit++;
 	return (ans);
 }
 
@@ -126,9 +126,9 @@ Fixed&	Fixed::operator--( void ){
 	return (*this); 
 }
 
-Fixed	Fixed::operator--( int ) const{
+Fixed	Fixed::operator--( int ){
 	Fixed	ans(*this);
-	ans._fixedPoit--;
+	_fixedPoit--;
 	return (ans);
 }
 
