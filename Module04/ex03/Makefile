@@ -1,7 +1,7 @@
-NAME = BSP
+NAME = AMateria
 CC   = g++ -Wall -Wextra -Werror -std=c++98
-SRC  = Fixed.cpp Point.cpp bsp.cpp main.cpp
-INC  = Fixed.hpp Point.hpp
+SRC  = main.cpp AMateria.cpp
+INC  = AMateria.hpp
 RM   = rm -f
 OBJ  = $(SRC:.cpp=.o)
 
