@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:56:21 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/21 13:11:32 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/01 23:31:07 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class	ScavTrap : public ClapTrap {
 
 	private:
-		ScavTrap( void );
+		// ScavTrap( void );
 	public:
 		ScavTrap( std::string name );
 		~ScavTrap( void );

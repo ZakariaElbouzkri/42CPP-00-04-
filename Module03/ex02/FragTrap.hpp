@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 13:17:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/21 13:24:44 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/10/01 23:16:58 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/10/01 23:33:18 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,15 @@
 
 #include <iostream>
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-class	FragTrap : public ClapTrap{
-
-	private:
-		FragTrap( void );
+class	FragTrap : public ClapTrap
+{
 	public:
 		FragTrap( std::string name );
 		~FragTrap( void );
 		FragTrap( FragTrap const& rhs );
 		FragTrap&	operator=( const FragTrap& rhs );
-		void	highFivesGuys( void ) const;
+		void	highFivesGuys( void );
 };
-
 
 #endif

@@ -1,7 +1,7 @@
 NAME = ScavTrap
-CC   = g++ -Wall -Wextra -Werror -std=c++98
-SRC  =  ClapTrap.cpp ScavTrap.cpp main.cpp
-INC  =  ClapTrap.hpp ScavTrap.hpp
+CC   = c++ -Wall -Wextra -Werror -std=c++98
+SRC  = ClapTrap.cpp ScavTrap.cpp main.cpp
+INC  = ClapTrap.hpp ScavTrap.hpp
 RM   = rm -f
 OBJ  = $(SRC:.cpp=.o)
 

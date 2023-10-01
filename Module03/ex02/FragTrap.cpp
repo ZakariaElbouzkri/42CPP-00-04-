@@ -5,45 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 13:17:21 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/21 13:28:32 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/10/01 23:16:55 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/10/01 23:33:59 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-
-// FragTrap::FragTrap( void ){
-// 	std::cout << "Default constructor called\n";
-// }
-
-FragTrap::FragTrap( std::string name) : ClapTrap(name){
-	std::cout << "FragTrap Default constructor called\n";
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_damage = 30;	
+FragTrap::FragTrap( std::string name ) : ClapTrap(name)
+{
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_damage = 30;
+	std::cout << "{FragTrap} " << _name << " is created\n";
 }
 
-FragTrap::~FragTrap( void ){
-	std::cout << "FragTrap Destructor called\n";
+FragTrap::~FragTrap( void )
+{
+	std::cout << "{FragTrap} Destructor called\n";
 }
 
-FragTrap::FragTrap( FragTrap const& rhs ){
-	std::cout << "FragTrap Copy constructor called\n";
-	*this = rhs;
+FragTrap::FragTrap( FragTrap const& rhs ) : ClapTrap(rhs._name)
+{
+	_hitPoints = rhs._hitPoints;
+	_energyPoints = rhs._energyPoints;
+	_damage = rhs._damage;
+	std::cout << "{FragTrap} Copy constructor called\n";
 }
 
-FragTrap&	FragTrap::operator=( const FragTrap& rhs ){
-	std::cout << "FragTrap Copy assignment operator called\n";
+FragTrap&	FragTrap::operator=( const FragTrap& rhs )
+{
+	std::cout << "{FragTrap} Copy assignment operator called\n";
 	if (this != &rhs){
-		this->_name = rhs._name;
-		this->_hitPoints = rhs._hitPoints;
-		this->_energyPoints = rhs._energyPoints;
-		this->_damage = rhs._damage;
+		_hitPoints = rhs._hitPoints;
+		_energyPoints = rhs._energyPoints;
+		_damage = rhs._damage;
 	}
 	return (*this);
 }
 
-void	FragTrap::highFivesGuys( void ) const{
-	std::cout << "Positive high Fives\n";
+void	FragTrap::highFivesGuys( void )
+{
+	if (_hitPoints > 0){
+		std::cout << "{FragTrap} " << _name << " request high fives\n";
+	}
 }
