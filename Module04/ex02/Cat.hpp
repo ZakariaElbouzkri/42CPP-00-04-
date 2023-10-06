@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:27:21 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 10:15:49 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/06 06:07:36 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class	Cat : public Animal
 {
 	private:
-		Brain	*_brain;
+		Brain*	_brn;
 	public:
 		Cat( void );
 		~Cat( void );

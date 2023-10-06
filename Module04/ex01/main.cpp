@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 09:07:59 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 11:25:41 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/06 07:42:04 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,44 @@
 #include "Dog.hpp"
 
 
-// void	leaks()
-// {
-// 	system("leaks Animals");
-// }
-
 int	main()
 {
-	// atexit(leaks);
-	const int N = 100;
-	Animal *arr[N];
+	{
+		Animal* meta = new Animal();
+		Cat*	c = new Cat();
+		Dog*	d = new Dog();
+		std::cout << meta->getType() << '\n';
+		std::cout << c->getType() << '\n';
+		std::cout << d->getType() << '\n';
 
-	for (int i=0; i < N; i++){
-		if (i * 2 >= N){
-			arr[i] = new Dog();
-		}else{
-			arr[i] = new Cat();
-		}
+		std::cout << "==================\n";
+		Cat	*c1 = new Cat(*c);
+		c1->makeSound();
+
+		*c = *c1;
+
+		delete c;
+		delete meta;
+		delete d;
+		delete c1;
 	}
-	for (int i=0; i < N; i++){
-		delete arr[i];
+	std::cout << "+++++++++++++++++\n";
+	{
+		const Animal* meta = new Animal();
+		const Cat* cat = new Cat();
+		const Dog* dog = new Dog();
+		
+		meta->makeSound();
+		cat->makeSound();
+		dog->makeSound();
+		
+		Dog* dog2 = new Dog(*dog);
+		
+		*dog2 = *dog;
+		dog2->makeSound();
+		delete meta;
+		delete dog;
+		delete cat;
+		delete dog2;
 	}
 }

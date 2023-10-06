@@ -1,7 +1,7 @@
-NAME = AMateria
-CC   = g++ -Wall -Wextra -Werror -std=c++98
-SRC  = main.cpp AMateria.cpp
-INC  = AMateria.hpp
+NAME = Materias
+CC   = c++ -Wall -Wextra -Werror -std=c++98
+SRC  = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp 
+INC  = AMateria.hpp Character.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp Ice.hpp MateriaSource.hpp 
 RM   = rm -f
 OBJ  = $(SRC:.cpp=.o)
 

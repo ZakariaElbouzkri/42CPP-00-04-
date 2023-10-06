@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:18:06 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 11:28:20 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/06 07:16:31 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class	Animal
 {
-
 	protected:
 		std::string	_type;
 	public:

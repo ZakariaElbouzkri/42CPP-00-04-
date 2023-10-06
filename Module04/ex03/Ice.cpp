@@ -1,40 +1,35 @@
 #include "Ice.hpp"
-#include "AMateria.hpp"
+
 
 Ice::Ice( void ) : AMateria("ice")
 {
-	std::cout << "Ice Default constructor called\n";
+	std::cout << "Ice created\n";
 }
 
 Ice::~Ice( void )
 {
-	std::cout << "Ice Destructor called\n";
+	std::cout << "Ice destroyed\n";
 }
 
 Ice::Ice( Ice const& rhs ) : AMateria("ice")
 {
-	std::cout << "Ice Copy constructor called\n";
-	*this = rhs;
+	(void)rhs;
+	std::cout << "Ice created with copy constructor\n";
 }
 
 Ice&	Ice::operator=( const Ice& rhs )
 {
-	std::cout << "Copy assignment operator called\n";
-	if (this != &rhs){
-		_type = rhs._type;
-	}
+	(void)rhs;
+	std::cout << "Ice copied with copy operator\n";
 	return (*this);
 }
 
-AMateria*	AMateria::clone( void ) const
+Ice*	Ice::clone() const
 {
-	std::cout << "Ice clone member function called\n";
-	AMateria*	obj = new Ice();
-	return (obj);
+	return (new Ice());
 }
 
-void		use( ICharacter& target )
+void	Ice::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << "*\n";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 }
-

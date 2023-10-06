@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:17:36 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/22 11:59:09 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/05 22:26:37 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 
 Animal::Animal( void )
 {
-	std::cout << "Animal object created with Unknown type\n";
+	std::cout << "[Animal] object created with Unknown type\n";
 }
 
 Animal::Animal( std::string type ) : _type(type)
 {
-	std::cout << "Animal object created with type : " << _type << "\n";
+	std::cout << "[Animal] object created with type : " << _type << "\n";
 }
 
 Animal::~Animal( void )
 {
-	std::cout << "Animal object Destroyed\n";
+	std::cout << "[Animal] object Destroyed\n";
 }
 
 Animal::Animal( Animal const& rhs )
 {
-	std::cout << "Animal Copy constructor called\n";
+	std::cout << "[Animal] Copy constructor called\n";
 	*this = rhs;
 }
 
 Animal&	Animal::operator=( const Animal& rhs )
 {
-	std::cout << "Animal Copy assignment operator called\n";
+	std::cout << "[Animal] Copy assignment operator called\n";
 	if (this != &rhs){
 		this->_type = rhs._type;
 	}
@@ -56,5 +56,5 @@ void	Animal::setType( std::string type )
 }
 
 void	Animal::makeSound( void ) const{
-	std::cout << "Unknown sound...\n";
+	std::cout << "[Animal] Unknown sound...\n";
 }

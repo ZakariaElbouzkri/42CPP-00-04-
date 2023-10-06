@@ -5,57 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 09:58:40 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 10:35:57 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/10/06 06:13:21 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/10/06 06:20:18 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-
 Brain::Brain( void )
 {
-	std::cout << "Brain Default constructor called\n";
-	_currIdx = 0;
+	std::cout << "Brain created\n";
 }
 
 Brain::~Brain( void )
 {
-	std::cout << "Brain Destructor called\n";
+	std::cout << "Brain destroyed\n";
 }
 
 Brain::Brain( Brain const& rhs )
 {
-	std::cout << "Brain Copy constructor called\n";
-	*this = rhs;
+	for (int i=0; i < N; i++){
+		_ideas[i] = rhs._ideas[i];
+	}
+	std::cout << "Brain created with copy constructor\n";
 }
 
 Brain&	Brain::operator=( const Brain& rhs )
 {
-	std::cout << "Brain Copy assignment operator called\n";
 	if (this != &rhs){
-		for (int i=0; i < 100; i++){
-			this->_ideas[i] = rhs._ideas[i];
+		for (int i=0; i < N; i++){
+			_ideas[i] = rhs._ideas[i];
 		}
 	}
+	std::cout << "Brain copied\n";
 	return (*this);
 }
 
-void	Brain::setIdea( std::string idea )
+
+void	Brain::setIdea(std::string idea)
 {
-	std::cout << "Brain SetIdea Member func called\n";
-	if (idea.empty())
-		return ;
-	_ideas[_currIdx] = idea;
-	_currIdx = (_currIdx + 1) % 100;
+	for (int i=0; i < N; i++){
+		if (_ideas[i].empty()){
+			_ideas[i] = idea;
+			return ;
+		}
+	}
+	std::cout << "Brain is full\n";
 }
 
-void	Brain::displayIdeas( void ) const
+std::string	Brain::getIdea(unsigned int idx) const
 {
-	std::cout << "Display Ideas Member func called\n";
-	for (int i=0; i < 100 && !_ideas[i].empty(); i++)
-	{
-		std::cout << "Idea [" << i << "]" << _ideas[i] << '\n';
+	if (idx < 100){
+		return (_ideas[idx]);
 	}
+	return ("");
 }
-	

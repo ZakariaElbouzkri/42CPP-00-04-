@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:28:57 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 10:14:58 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/06 06:07:54 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class	Dog : public Animal
 {
 	private:
-		Brain	*_brain;
+		Brain*	_brn;
 	public:
 		Dog( void );
 		~Dog( void );

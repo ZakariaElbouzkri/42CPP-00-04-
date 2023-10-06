@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 21:03:34 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 22:14:16 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/10/05 01:19:00 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/10/05 03:56:15 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Cure : public AMateria
 		~Cure( void );
 		Cure( Cure const& rhs );
 		Cure&	operator=( const Cure& rhs );
-		AMateria*	clone( void ) const;
+		Cure*	clone() const;
 		void	use(ICharacter& target);
 };
 

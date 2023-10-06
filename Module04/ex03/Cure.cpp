@@ -1,38 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/05 01:18:56 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/10/06 07:33:30 by zel-bouz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cure.hpp"
 #include "AMateria.hpp"
 
 Cure::Cure( void ) : AMateria("cure")
 {
-	std::cout << "Cure Default constructor called\n";
+	std::cout << "Cure created\n";
 }
 
 Cure::~Cure( void )
 {
-	std::cout << "Cure Destructor called\n";
+	std::cout << "Cure destroyed\n";
 }
 
 Cure::Cure( Cure const& rhs ) : AMateria("cure")
 {
-	std::cout << "Cure Copy constructor called\n";
+	(void)rhs;
+	std::cout << "Cure created with copy constructor\n";
 }
 
 Cure&	Cure::operator=( const Cure& rhs )
 {
-	std::cout << "Cure Copy assignment operator called\n";
-	if (this != &rhs){
-		_type = rhs._type;
-	}
+	(void)rhs;
+	std::cout << "Cure copied with copy operator\n";
 	return (*this);
 }
 
-AMateria*	Cure::clone( void ) const
+Cure*	Cure::clone() const 
 {
-	std::cout << "Cure clone member function called\n";
-	AMateria*	obj = new Cure();
-	return (obj);
+	return (new Cure());
 }
 
-void		Cure::use( ICharacter& target )
+void	Cure::use(ICharacter& target)
 {
 	std::cout << "* heals " << target.getName() << "’s wounds *\n";
 }

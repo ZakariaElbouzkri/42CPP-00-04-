@@ -5,45 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 20:59:51 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 22:11:59 by zel-bouz         ###   ########.fr       */
+/*   Created: 2023/10/05 01:32:43 by zel-bouz          #+#    #+#             */
+/*   Updated: 2023/10/06 07:26:14 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
-AMateria::AMateria( std::string const& type )
+
+AMateria::AMateria( std::string const& type ) : _type(type)
 {
-	std::cout << "AMateria Default constructor called\n";
+	std::cout << "AMateria type : " << _type << " created\n";
 }
 
 AMateria::~AMateria( void )
 {
-	std::cout << "AMateria Destructor called\n";
+	std::cout << "AMateria type : " << _type << " destroyed\n";
 }
 
 AMateria::AMateria( AMateria const& rhs )
 {
-	std::cout << "AMateria Copy constructor called\n";
-	*this = rhs;
+	std::cout << "AMateria created with copy constructor\n";
+	_type = rhs._type;
 }
 
 AMateria&	AMateria::operator=( const AMateria& rhs )
 {
-	std::cout << "AMateria Copy assignment operator called\n";
+	std::cout << "AMateria copy assingnment operator called\n";
 	if (this != &rhs){
 		_type = rhs._type;
 	}
 	return (*this);
 }
 
-std::string	const& AMateria::getType() const
+std::string const& AMateria::getType() const
 {
 	return (_type);
 }
 
-void		AMateria::use( ICharacter& target )
+void	AMateria::use(ICharacter& target)
 {
-	std::cout << "AMateria use member called\n";
+	std::cout << "AMateria " << _type << " use " << target.getName() << '\n';
 }

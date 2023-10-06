@@ -1,7 +1,7 @@
 NAME = Animals
-CC   = g++ -Wall -Wextra -Werror -std=c++98
-SRC  =  Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp main.cpp
-INC  =  Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp
+CC   = c++ -Wall -Wextra -Werror -std=c++98
+SRC  = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp main.cpp
+INC  = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp
 RM   = rm -f
 OBJ  = $(SRC:.cpp=.o)
 

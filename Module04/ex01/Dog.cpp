@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:28:43 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/09/25 11:16:10 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/10/06 06:55:48 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,32 @@
 
 Dog::Dog( void ) : Animal("Dog")
 {
-	_brain = new Brain();
-	std::cout << "{Dog} Default constructor called\n";
+	_brn = new Brain();
+	std::cout << "[Dog] Default constructor called\n";
 }
 
 Dog::~Dog( void )
 {
-	std::cout << "{Dog} Destructor called\n";
-	delete _brain;
+	delete _brn;
+	std::cout << "[Dog] Destructor called\n";
 }
 
-Dog::Dog( Dog const& rhs )
+Dog::Dog( Dog const& rhs ) : Animal("Dog")
 {
-	std::cout << "{Dog} Copy constructor called\n";
-	if (this != &rhs)
-	{
-		_brain = new Brain();
-		*_brain = *rhs._brain;
-		_type = rhs._type;
-	}
+	std::cout << "[Dog] Copy constructor called\n";
+	_brn = new Brain(*rhs._brn);
 }
 
 Dog&	Dog::operator=( const Dog& rhs )
 {
-	std::cout << "{Dog} Copy assignment operator called\n";
+	std::cout << "[Dog] Copy assignment operator called\n";
 	if (this != &rhs){
-		delete _brain;
-		_brain = new Brain;
-		*_brain = *rhs._brain;
-		_type = rhs._type;
+		delete _brn;
+		_brn = new Brain(*rhs._brn);
 	}
 	return (*this);
 }
 
 void	Dog::makeSound( void ) const{
-	std::cout << "{Dog} sound...\n";	
+	std::cout << "[Dog] sound...\n";
 }
